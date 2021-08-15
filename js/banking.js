@@ -1,9 +1,21 @@
+//disable deposit button
+document.getElementById("deposit-input").addEventListener('keyup', function (event) {
+    if (event.target.value > 0) {
+        document.getElementById('deposit-button').removeAttribute('disabled');
+    }
+    else {
+        document.getElementById('deposit-button').setAttribute('disabled', true);
+    }
+});
+
+
 //handle deposit button
 document.getElementById('deposit-button').addEventListener('click', function () {
     //get the deposited amount
     const depositInput = document.getElementById('deposit-input');
     const newDepositAmountText = depositInput.value;
     const newDepositAmount = parseFloat(newDepositAmountText);
+
 
     //get previous deposit amount
     const depositTotal = document.getElementById('deposit-total');
@@ -30,6 +42,20 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
     //clear the deposit input value field
     depositInput.value = '';
+});
+
+
+//disable withdraw button
+document.getElementById("withdraw-input").addEventListener('keyup', function (event) {
+    const withdrawButton = document.getElementById('withdraw-button');
+    //const withdrawInput = document.getElementById('withdraw-input');
+    if (event.target.value > 0) {
+        withdrawButton.removeAttribute('disabled');
+    }
+    else {
+        withdrawButton.setAttribute('disabled', true);
+    }
+    //withdrawInput.value = '';
 });
 
 
